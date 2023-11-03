@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto 2</title>
+</head>
+<body>
+    <header>
+        <h1>Produto 2</h1>
+    </header>
+    <main>
+        <section class="product">
+            <h2>Produto 2</h2>
+            <p>Descrição do produto 2.</p>
+            <p>Preço: R$ 60.00</p>
+            <button data-mercadopago-product-id="prod_456">Comprar</button>
+        </section>
+    </main>
+    <footer>
+        &copy; 2023 Minha Loja Online
+    </footer>
+
+    <script src="https://www.mercadopago.com/v2/security.js" view="home"></script>
+    <script>
+        Mercadopago.setPublishableKey('SEU_CLIENT_ID_AQUI');
+        Mercadopago.getIdentificationTypes();
+
+        document.querySelector('button').addEventListener('click', function() {
+            const cardForm = Mercadopago.cardForm({
+                amount: 60.00,
+                autoMount: false,
+                form: {
+                    id: 'payment-form',
+                    cardholderName: { id: 'cardholderName' },
+                    cardholderEmail: { id: 'cardholderEmail' },
+                    cardNumber: { id: 'cardNumber' },
+                    cardExpirationMonth: { id: 'cardExpirationMonth' },
+                    cardExpirationYear: { id: 'cardExpirationYear' },
+                    securityCode: { id: 'securityCode' },
+                    installments: { id: 'installments' }
+                }
+            });
+
+            cardForm.createToken(function (token) {
+                // Aqui você pode enviar o token para o seu servidor e processar o pagamento.
+                console.log(token);
+            });
+        });
+    </script>
+</body>
+</html>
