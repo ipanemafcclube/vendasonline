@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Loja Online</title>
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Minha Loja Online</h1>
+    </header>
+    <main>
+        <section class="product">
+            <h2>Produto 1</h2>
+            <p>Descrição do produto 1.</p>
+            <p>Preço: R$ 50.00</p>
+            <button data-mercadopago-product-id="prod_123">Comprar</button>
+        </section>
+    </main>
+    <footer>
+        &copy; 2023 Minha Loja Online
+    </footer>
+</body>
+</html>
